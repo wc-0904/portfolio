@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// base: '/' because this deploys to a <user>.github.io root repo.
-// For a project page (github.com/<user>/<repo>) change this to '/<repo-name>/'.
+// This is a GitHub Pages project page served from a subpath, so base must match
+// the repo name: https://wc-0904.github.io/portfolio/
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: '/portfolio/',
 })
