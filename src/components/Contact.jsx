@@ -4,7 +4,7 @@ import { fadeUp, stagger, inViewProps } from '../lib/motion.js'
 import './Contact.css'
 
 export default function Contact() {
-  const { email, location, availability } = site.contact
+  const { emails, location, availability } = site.contact
 
   return (
     <section id="contact" className="section contact">
@@ -19,13 +19,17 @@ export default function Contact() {
           {availability}
         </motion.p>
 
-        <motion.a
-          className="btn btn-primary contact__email"
-          href={`mailto:${email}`}
-          variants={fadeUp}
-        >
-          {email}
-        </motion.a>
+        <motion.div className="contact__emails" variants={fadeUp}>
+          {emails.map((e, i) => (
+            <a
+              key={e}
+              className={`btn contact__email ${i === 0 ? 'btn-primary' : 'btn-ghost'}`}
+              href={`mailto:${e}`}
+            >
+              {e}
+            </a>
+          ))}
+        </motion.div>
 
         <motion.div className="contact__meta" variants={fadeUp}>
           <span className="eyebrow">{location}</span>

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
 import { fadeUp } from '../lib/motion.js'
+import { asset } from '../lib/asset.js'
 
 export default function ProjectCard({ project }) {
   const { title, year, stack = [], links = [], thumbnail, body, status } =
@@ -15,7 +16,7 @@ export default function ProjectCard({ project }) {
     >
       {thumbnail && (
         <div className="project-card__thumb">
-          <img src={thumbnail} alt={`${title} thumbnail`} loading="lazy" />
+          <img src={asset(thumbnail)} alt={`${title} thumbnail`} loading="lazy" />
           {status === 'current' && (
             <span className="project-card__badge">In progress</span>
           )}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import site from '../content/site.json'
+import { asset } from '../lib/asset.js'
 import './Nav.css'
 
 // Map nav labels to section ids. "Work" covers both project sections.
@@ -45,7 +46,7 @@ export default function Nav() {
           ))}
           <a
             className="btn btn-ghost nav__resume"
-            href={site.resume}
+            href={asset(site.resume)}
             target="_blank"
             rel="noreferrer"
             onClick={() => setOpen(false)}

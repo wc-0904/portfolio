@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import site from '../content/site.json'
 import { fadeUp, stagger } from '../lib/motion.js'
+import { asset } from '../lib/asset.js'
 import './Hero.css'
 
 export default function Hero() {
@@ -17,10 +18,10 @@ export default function Hero() {
             {site.subtitle}
           </motion.p>
           <motion.h1 className="hero__title" variants={fadeUp}>
-            {site.tagline}
+            {site.name}
           </motion.h1>
           <motion.p className="hero__name" variants={fadeUp}>
-            {site.name}
+            {site.tagline}
           </motion.p>
 
           <motion.div className="hero__actions" variants={fadeUp}>
@@ -29,7 +30,7 @@ export default function Hero() {
             </a>
             <a
               className="btn btn-ghost"
-              href={site.resume}
+              href={asset(site.resume)}
               target="_blank"
               rel="noreferrer"
             >

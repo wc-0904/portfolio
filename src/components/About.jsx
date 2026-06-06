@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import aboutText from '../content/about.md?raw'
 import site from '../content/site.json'
 import { fadeUp, stagger, inViewProps } from '../lib/motion.js'
+import { asset } from '../lib/asset.js'
 import './About.css'
 
 export default function About() {
@@ -15,7 +16,7 @@ export default function About() {
       >
         <motion.div className="about__portrait" variants={fadeUp}>
           <img
-            src="/images/portrait.svg"
+            src={asset('/images/portrait.svg')}
             alt={`Portrait of ${site.name}`}
             loading="lazy"
             width="420"
@@ -31,7 +32,7 @@ export default function About() {
           </div>
           <a
             className="btn btn-primary about__resume"
-            href={site.resume}
+            href={asset(site.resume)}
             target="_blank"
             rel="noreferrer"
           >

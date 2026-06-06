@@ -24,17 +24,17 @@ npm run deploy       # builds then publishes to GitHub Pages via gh-pages
 - **CSS variables** — single source of truth in `src/styles/tokens.css`
 - **gh-pages** — deploy target (`npm run deploy` → `gh-pages -d dist`)
 
-Vite `base` is set to `/` (this is a `<user>.github.io` root repo, not a project page).
+Vite `base` is set to `/portfolio/` in `vite.config.js` because this deploys as a GitHub Pages **project page** at `https://wc-0904.github.io/portfolio/`. Absolute asset URLs in content (e.g. `thumbnail: /images/...`) are served relative to that base in production, so reference public assets accordingly.
 
 ## Architecture
 
 ### Content loading pattern
 
-All project markdown is loaded at build time via:
+All project markdown is loaded at build time in `src/lib/projects.js` via:
 ```js
-import.meta.glob('./content/projects/**/*.md', { eager: true, as: 'raw' })
+import.meta.glob('../content/projects/**/*.md', { eager: true, query: '?raw', import: 'default' })
 ```
-Each raw string is parsed with `gray-matter` to split frontmatter from body. Projects are split by `status` field (`"past"` vs `"current"`), sorted by `order`.
+Each raw string is parsed with `gray-matter` to split frontmatter from body, producing `{ ...frontmatter, body, _path }`. The module exports `pastProjects` and `currentProjects`, filtered by the `status` field (`"past"` vs `"current"`) and sorted by `order` (missing `order` sorts last). `gray-matter` needs a `Buffer` polyfill in the browser, which is why `buffer` is a dependency.
 
 ### Content files (the only files editors ever touch)
 
@@ -95,7 +95,8 @@ Each section is a separate component in `src/components/`. No display text is ha
 - Framer Motion `whileInView` for scroll-triggered entrances (run once, `viewport={{ once: true }}`)
 - Card stagger on entrance; subtle lift/scale on hover
 - Durations ~0.3–0.5s, soft easing — nothing bouncy
-- All motion gated behind a `prefers-reduced-motion` check
+- Reduced motion is handled centrally: `App.jsx` wraps everything in `<MotionConfig reducedMotion="user">`, so Framer respects the OS setting globally — no per-component `prefers-reduced-motion` checks needed
+- Shared variants (`fadeUp`, `stagger`, `inViewProps`) live in `src/lib/motion.js`; reuse them instead of redefining inline
 
 ## Constraints
 

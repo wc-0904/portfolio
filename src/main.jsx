@@ -1,6 +1,5 @@
-import { Buffer } from 'buffer'
-// gray-matter expects a Node Buffer global; provide one for the browser.
-globalThis.Buffer = globalThis.Buffer || Buffer
+// Must come first: installs the Buffer global before App (and gray-matter) load.
+import './buffer-polyfill.js'
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
