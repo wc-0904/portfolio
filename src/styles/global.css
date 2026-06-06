@@ -8,8 +8,15 @@
 
 html {
   scroll-behavior: smooth;
-  /* offset anchor scrolling so the sticky nav does not cover headings */
-  scroll-padding-top: 80px;
+  /* desktop has no nav; just a little breathing room on anchor jumps */
+  scroll-padding-top: 24px;
+}
+
+/* mobile shows the sticky nav, so offset anchor jumps past it */
+@media (max-width: 720px) {
+  html {
+    scroll-padding-top: 80px;
+  }
 }
 
 body {

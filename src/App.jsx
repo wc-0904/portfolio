@@ -6,6 +6,7 @@ import Skills from './components/Skills.jsx'
 import Projects from './components/Projects.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
+import ScrollCue from './components/ScrollCue.jsx'
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <ScrollCue />
     </MotionConfig>
   )
 }

@@ -6,6 +6,13 @@
   border-bottom: 1px solid transparent;
 }
 
+/* Desktop uses the bottom-left scroll cue instead of a top nav. */
+@media (min-width: 721px) {
+  .nav {
+    display: none;
+  }
+}
+
 .nav--scrolled {
   background: rgba(15, 19, 17, 0.78);
   backdrop-filter: blur(12px);

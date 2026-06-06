@@ -6,7 +6,15 @@ import './Projects.css'
 
 function Grid({ projects }) {
   return (
-    <motion.div className="projects__grid" variants={stagger} {...inViewProps}>
+    <motion.div
+      className="projects__grid"
+      variants={stagger}
+      {...inViewProps}
+      // The grid can be taller than the viewport (1-column on mobile, many
+      // cards), so a large `amount` would never be satisfied and the cards
+      // would stay hidden. Trigger as soon as the top edge scrolls in.
+      viewport={{ once: true, amount: 0.05 }}
+    >
       {projects.map((p) => (
         <ProjectCard key={p._path} project={p} />
       ))}

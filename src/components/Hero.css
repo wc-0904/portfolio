@@ -55,33 +55,3 @@
   margin-top: 38px;
 }
 
-.hero__cue {
-  position: absolute;
-  bottom: 36px;
-  left: 24px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--muted);
-}
-
-.hero__cue-line {
-  width: 46px;
-  height: 1px;
-  background: var(--muted);
-  transform-origin: left;
-  animation: cue 2.2s var(--ease) infinite;
-}
-
-@keyframes cue {
-  0%, 100% { transform: scaleX(0.4); opacity: 0.4; }
-  50% { transform: scaleX(1); opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__cue-line {
-    animation: none;
-  }
-}

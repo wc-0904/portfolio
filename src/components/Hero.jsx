@@ -38,11 +38,6 @@ export default function Hero() {
             </a>
           </motion.div>
         </motion.div>
-
-        <a className="hero__cue" href="#about" aria-label="Scroll to about">
-          <span>Scroll</span>
-          <span className="hero__cue-line" />
-        </a>
       </div>
     </section>
   )

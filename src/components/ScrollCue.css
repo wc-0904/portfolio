@@ -1,0 +1,55 @@
+.scroll-cue {
+  position: fixed;
+  bottom: 36px;
+  left: 24px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  transition: color 0.2s var(--ease), opacity 0.3s var(--ease);
+}
+
+.scroll-cue:hover {
+  color: var(--accent-gold);
+}
+
+.scroll-cue--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-cue__line {
+  width: 46px;
+  height: 1px;
+  background: var(--muted);
+  transform-origin: left;
+  animation: scroll-cue-pulse 2.2s var(--ease) infinite;
+}
+
+@keyframes scroll-cue-pulse {
+  0%,
+  100% {
+    transform: scaleX(0.4);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue__line {
+    animation: none;
+  }
+}
+
+/* The cue is a desktop nicety; on phones you just scroll. */
+@media (max-width: 720px) {
+  .scroll-cue {
+    display: none;
+  }
+}
