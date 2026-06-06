@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Project thumbnail placeholder">
+  <defs>
+    <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#18201b"/>
+      <stop offset="1" stop-color="#10140f"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#pg)"/>
+  <g stroke="#3f9d6f" stroke-opacity="0.35" fill="none" stroke-width="2">
+    <rect x="220" y="120" width="200" height="120" rx="8"/>
+    <path d="M180 180h40M420 180h40M320 80v40M320 240v40"/>
+  </g>
+  <text x="320" y="330" text-anchor="middle" font-family="monospace" font-size="15" fill="#93a39a">project thumbnail — replace me</text>
+</svg>

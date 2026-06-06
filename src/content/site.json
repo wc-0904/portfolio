@@ -1,0 +1,16 @@
+{
+  "name": "Wasmir Chowdhury",
+  "tagline": "I build systems from the silicon up.",
+  "subtitle": "ECE @ Carnegie Mellon",
+  "resume": "/resume.pdf",
+  "nav": ["About", "Skills", "Work", "Contact"],
+  "contact": {
+    "email": "wchowdhu@andrew.cmu.edu",
+    "location": "Pittsburgh, PA",
+    "availability": "Open to internships & research roles."
+  },
+  "socials": [
+    { "label": "GitHub", "url": "https://github.com/" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/" }
+  ]
+}

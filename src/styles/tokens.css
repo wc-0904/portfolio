@@ -1,0 +1,20 @@
+/* Single source of truth for theme. Edit colors here only. */
+:root {
+  --bg: #0f1311;
+  --surface: #161b18;
+  --surface-2: #1c221e;
+  --text: #e8ece9;
+  --muted: #93a39a;
+  --accent-green: #3f9d6f;
+  --accent-gold: #c9a44c;
+
+  --border: rgba(232, 236, 233, 0.08);
+  --radius: 14px;
+  --maxw: 1080px;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.45s;
+}

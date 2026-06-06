@@ -1,0 +1,87 @@
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* soft green glow behind the hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  width: 70vw;
+  max-width: 760px;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    circle,
+    rgba(63, 157, 111, 0.16),
+    transparent 62%
+  );
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  max-width: 760px;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-mono);
+  color: var(--accent-green);
+  font-size: 0.95rem;
+  margin: 0 0 18px;
+}
+
+.hero__title {
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.hero__name {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin: 22px 0 0;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 38px;
+}
+
+.hero__cue {
+  position: absolute;
+  bottom: 36px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.hero__cue-line {
+  width: 46px;
+  height: 1px;
+  background: var(--muted);
+  transform-origin: left;
+  animation: cue 2.2s var(--ease) infinite;
+}
+
+@keyframes cue {
+  0%, 100% { transform: scaleX(0.4); opacity: 0.4; }
+  50% { transform: scaleX(1); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__cue-line {
+    animation: none;
+  }
+}

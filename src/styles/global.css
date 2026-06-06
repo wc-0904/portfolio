@@ -1,0 +1,143 @@
+@import "./tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* offset anchor scrolling so the sticky nav does not cover headings */
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  line-height: 1.15;
+  font-weight: 600;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---- layout helpers ---- */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 110px 0;
+  scroll-margin-top: 80px;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--accent-gold);
+  margin-bottom: 18px;
+}
+
+.section-title {
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+  margin-bottom: 12px;
+}
+
+.eyebrow {
+  color: var(--muted);
+}
+
+/* ---- buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 1px solid var(--border);
+  transition: transform 0.2s var(--ease), background 0.2s var(--ease),
+    border-color 0.2s var(--ease), color 0.2s var(--ease);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--accent-green);
+  color: #07120c;
+  border-color: var(--accent-green);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  transform: translateY(-2px);
+}
+
+/* ---- tag / chip ---- */
+.chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 5px 11px;
+  border-radius: 999px;
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 72px 0;
+  }
+}
+
+/* Respect reduced motion: kill smooth scroll + any leftover transitions. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

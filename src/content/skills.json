@@ -1,0 +1,5 @@
+{
+  "Languages": ["C", "C++", "Python", "Rust", "MATLAB"],
+  "Hardware & Machinery": ["STM32 / ARM Cortex-M", "FPGA (Xilinx, Lattice ECP5)", "Raspberry Pi", "I2C / UART"],
+  "Tools": ["Git", "WSL / Linux", "OpenMP", "MPI", "RTOS"]
+}
