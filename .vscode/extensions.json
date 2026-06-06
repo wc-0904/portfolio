@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "dsznajder.es7-react-js-snippets",
+    "yzhang.markdown-all-in-one",
+    "naumovs.color-highlight",
+    "christian-kohler.path-intellisense"
+  ]
+}
