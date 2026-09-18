@@ -9,7 +9,6 @@ export default function Footer() {
         <span>
           &copy; {year} {site.name}
         </span>
-        <span className="footer__sign">Built by hand. No template.</span>
       </div>
     </footer>
   )

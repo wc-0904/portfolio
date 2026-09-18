@@ -6,7 +6,7 @@
 .footer__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 12px;
   font-family: var(--font-mono);
   font-size: 0.82rem;

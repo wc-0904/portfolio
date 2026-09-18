@@ -16,7 +16,7 @@ export default function About() {
       >
         <motion.div className="about__portrait" variants={fadeUp}>
           <img
-            src={asset('/images/portrait.svg')}
+            src={asset('/images/portrait.png')}
             alt={`Portrait of ${site.name}`}
             loading="lazy"
             width="420"

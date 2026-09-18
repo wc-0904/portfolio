@@ -20,9 +20,11 @@ export default function Hero() {
           <motion.h1 className="hero__title" variants={fadeUp}>
             {site.name}
           </motion.h1>
-          <motion.p className="hero__name" variants={fadeUp}>
-            {site.tagline}
-          </motion.p>
+          {site.tagline && (
+            <motion.p className="hero__name" variants={fadeUp}>
+              {site.tagline}
+            </motion.p>
+          )}
 
           <motion.div className="hero__actions" variants={fadeUp}>
             <a className="btn btn-primary" href="#contact">

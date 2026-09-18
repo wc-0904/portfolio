@@ -1,11 +1,21 @@
+import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
 import { fadeUp } from '../lib/motion.js'
 import { asset } from '../lib/asset.js'
 
 export default function ProjectCard({ project }) {
-  const { title, year, stack = [], links = [], thumbnail, body, status } =
+  const { title, year, stack = [], links = [], thumbnail, video, body, status } =
     project
+  const videoRef = useRef(null)
+
+  const handleEnter = () => videoRef.current?.play()
+  const handleLeave = () => {
+    const el = videoRef.current
+    if (!el) return
+    el.pause()
+    el.currentTime = 0
+  }
 
   return (
     <motion.article
@@ -15,8 +25,23 @@ export default function ProjectCard({ project }) {
       transition={{ type: 'spring', stiffness: 260, damping: 22 }}
     >
       {thumbnail && (
-        <div className="project-card__thumb">
+        <div
+          className="project-card__thumb"
+          onMouseEnter={handleEnter}
+          onMouseLeave={handleLeave}
+        >
           <img src={asset(thumbnail)} alt={`${title} thumbnail`} loading="lazy" />
+          {video && (
+            <video
+              ref={videoRef}
+              className="project-card__video"
+              src={asset(video)}
+              muted
+              loop
+              playsInline
+              preload="none"
+            />
+          )}
           {status === 'current' && (
             <span className="project-card__badge">In progress</span>
           )}
